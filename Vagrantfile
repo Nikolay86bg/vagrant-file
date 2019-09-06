@@ -24,7 +24,6 @@ Vagrant.configure("2") do |config|
   # Provision Settings
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y git
 
     apt-get install apache2 -y
     systemctl start apache2.service
@@ -38,7 +37,6 @@ Vagrant.configure("2") do |config|
     apt-get install php -y
     apt-get install php-{bcmath,bz2,intl,gd,mbstring,mysql,zip,fpm,xml} -y
     systemctl restart apache2.service
-
 
     service apache2 restart
   SHELL
